@@ -2,12 +2,12 @@
 	'use strict';
 	angular
 		.module('contralormx')
-		.directive('cxDatepicker', ['$rootScope', '$filter', 'Contralor', Directive]);
+		.directive('datepicker', ['$rootScope', '$filter', 'Contralor', Directive]);
 
 	function Directive() {
 		return {
 			restrict: 'E',
-			templateUrl: 'app/components/datepicker/datepicker.html',
+			templateUrl: 'datepicker.html',
 			controller: Controller,
 			controllerAs: 'datepicker',
 			scope: {
