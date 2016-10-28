@@ -1,0 +1,46 @@
+<div class="datepicker {{datepicker.nclass}}" id="{{datepicker.uid}}">
+	<div class="input-group">
+		<div class="form-control input">{{datepicker.inputValue}}</div>
+		<a class="input-group-addon" ng-click="datepicker.calendarToggle('calendar')" ng-if="datepicker.params.calendar"><span class="glyphicon glyphicon-calendar"></span></a>
+		<a class="input-group-addon" ng-click="datepicker.calendarToggle('clock')" ng-if="datepicker.params.clock"><span class="glyphicon glyphicon-time"></span></a>
+	</div>
+	<div class="calendar display hidden" ng-if="datepicker.params.calendar">
+		<div class="calendar-header">
+			<a class="calendar-control control-left btn btn-sm fa fa-angle-double-left" ng-click="datepicker.calendarChange('prev', datepicker.header)"></a>
+			<a class="calendar-title" ng-click="datepicker.calendarHeader(datepicker.header)">{{datepicker.header.name}}</a>
+			<a class="calendar-control control-right btn btn-sm fa fa-angle-double-right" ng-click="datepicker.calendarChange('next', datepicker.header)"></a>
+		</div>
+		<div class="calendar-window">
+			<div class="month-window" ng-if="datepicker.month">
+				<div class="week-days">
+					<span>Do</span>
+					<span>Lu</span>
+					<span>Ma</span>
+					<span>Mi</span>
+					<span>Ju</span>
+					<span>Vi</span>
+					<span>Sa</span>
+				</div>
+				<div class="month-days">
+					<div ng-repeat="week in datepicker.month.data">
+						<a ng-repeat="day in week track by $index" disabled="{{day.disabled}}" ng-click="datepicker.calendarSelect(day)" class="day">{{day.id}}</a>
+					</div>
+				</div>
+			</div>
+			<div class="month-list-window" ng-if="datepicker.monthList">
+				<a ng-repeat="month in datepicker.monthList" ng-click="datepicker.calendarSelect(month)" class="month">{{month.shortName}}</a>
+			</div>
+			<div class="year-list-window">
+				<a ng-repeat="year in yearList" ng-click="datepicker.calendarSelect(year)"></a>
+			</div>
+		</div>
+	</div>
+	<div class="clock display hidden" ng-if="datepicker.params.clock">
+		<ul>
+			<li ng-repeat="hour in datepicker.clock">
+				<a ng-click="datepicker.calendarSelect(hour)">{{hour.value}}</a>
+			</li>
+		</ul>
+	</div>
+	<input type="hidden" ng-model="datepicker.model">
+</div>

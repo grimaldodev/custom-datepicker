@@ -1,0 +1,113 @@
+.datepicker {
+	position: relative;
+	display: inline-block;
+	width: 100%;
+	.input-group {
+		width: inherit;
+	}
+	.form-control {
+		text-align: left;
+		padding: 4px;
+	}
+	.input-group-addon {
+		width: 30px !important;
+		max-width: 30px;
+		min-width: 30px;
+		padding: 5px 8px;
+	}
+	.calendar {
+		$title: 70%;
+		position: absolute;
+		// width: 100%;
+		width: 150px;
+		background-color: #ECECEC;
+		border: 1px solid #D2D2D2;
+		border-radius: 4px;
+		text-align: center;
+		box-shadow: 0px 2px 5px #AAA;
+		z-index: 9;
+		-webkit-transition: all 0.9s ease-out;
+		transition: all 0.9s ease-out;
+		a {
+			color: black;
+			&:hover {
+				color: white;
+				cursor: pointer;
+				text-decoration: none;
+				background-color: $cx-red-1;
+			}
+		}
+		.calendar-header {
+			text-align: center;
+			background-color: #EEE;
+			height: 25px;
+			padding-top: 2px;
+			.calendar-title {
+				display: inline-block;
+				float: left;
+				color: #000;
+				width: $title;
+				padding: 4px 0;
+				&:hover {
+					color: #FFF;
+					text-decoration: none;
+					background-color: #bbb3af;
+				}
+			}
+			.calendar-control {
+				display: inline-block;
+				color: #000;
+				padding: 4px 0;
+				width: (100% - $title) / 2;
+				&.control-left {
+					float: left;
+				}
+				&.control-right {
+					float: left;
+				}
+				&:hover {
+					background-color: $cx-red-1;
+				}
+			}
+		}
+		.day {
+			display: inline-block;
+			width: 14%;
+			border-radius: 5px;
+			&:not(: empty) {
+				padding: 2px 0px;
+			}
+		}
+		.week-days {
+			background-color: #EEE;
+			border-bottom: 1px solid #DDD;
+			span {
+				display: inline-block;
+				width: 12%;
+			}
+		}
+		.month {
+			display: inline-flex;
+			width: 35px;
+			height: 35px;
+			text-overflow: ellipsis;
+			overflow: hidden;
+			padding: 10px;
+			white-space: nowrap;
+			border-radius: 5px;
+		}
+		.month-days {
+			margin-bottom: 4px;
+			background-color: #FFF;
+		}
+		.month-list-window {
+			background-color: #FFF;
+		}
+	}
+	.input-group-addon {
+		&:hover {
+			cursor: pointer;
+		}
+	}
+	// - datepicker
+}
