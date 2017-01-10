@@ -1,8 +1,8 @@
 (function () {
 	'use strict';
 	angular
-		.module('contralormx')
-		.directive('datepicker', ['$rootScope', '$filter', 'Contralor', Directive]);
+		.module('myApp')
+		.directive('datepicker', ['$rootScope', '$filter', 'Utils', Directive]);
 
 	function Directive() {
 		return {
@@ -18,7 +18,7 @@
 			}
 		};
 
-		function Controller($scope, $rootScope, $filter, Contralor) {
+		function Controller($scope, $rootScope, $filter, Utils) {
 			var vm = $scope,
 				settings = {
 					calendar: true,
@@ -137,7 +137,7 @@
 				var fullMonth = [],
 					totalDays = [],
 					dateObj = new Date(),
-					actualMonth = Contralor.utils.months[dateObj.getMonth()],
+					actualMonth = Utils.months[dateObj.getMonth()],
 					settings = {
 						month: actualMonth.name,
 						days: actualMonth.days
@@ -154,7 +154,7 @@
 				}
 				if (settings.newDate) {
 					dateObj = new Date(settings.newDate);
-					actualMonth = Contralor.utils.months[dateObj.getMonth()];
+					actualMonth = Utils.months[dateObj.getMonth()];
 					settings.month = actualMonth.name;
 					settings.days = actualMonth.days;
 				}
@@ -203,7 +203,7 @@
 				var $this = {
 					'calendar': function () {
 						var year = new Date(),
-							list = Contralor.utils.months;
+							list = Utils.months;
 						if (vm.model) {
 							year.setFullYear(vm.model.getFullYear());
 						}
